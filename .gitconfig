@@ -1,0 +1,28 @@
+[user]
+  name = mkmn
+  email = mkmn52@gmail.com
+[core]
+  excludesfile = ~/.gitignore
+  attributesfile = ~/.gitattributes
+  quotepath = false
+  editor = /usr/local/bin/vim
+[push]
+  default = simple
+[fetch]
+  prune =  true
+[diff "xlsx"]
+  binary = true
+  textconv = $GOPATH/bin/git-xlsx-textconv
+[alias]
+  ad = add
+  ch = checkout
+  co = commit
+  st = status
+  br = branch
+  fe = fetch
+  me = merge
+  ps = push
+  pl = pull
+  di = diff
+[diff]
+  renameLimit = -1
