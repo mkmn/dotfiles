@@ -5,7 +5,7 @@
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
   quotepath = false
-  editor = /usr/local/bin/vim
+  editor = nvim
 [push]
   default = simple
 [fetch]
