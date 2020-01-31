@@ -1,35 +1,28 @@
-# git
-if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
-  source `brew --prefix`/etc/bash_completion.d/git-completion.bash
-  __git_complete g __git_main
-fi
-
-if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh ]; then
-  source `brew --prefix`/etc/bash_completion.d/git-prompt.sh
-fi
-
-# ssh
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
-
-# prompt
-GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='\[\033[32m\]\w\[\033[0m\]\[\033[31m\]$(__git_ps1 "[%s]")\[\033[0m\]\n\$ '
+[[ -r `brew --prefix`/etc/profile.d/bash_completion.sh ]] && . `brew --prefix`/etc/profile.d/bash_completion.sh
 
 # alias
 alias ls='ls -G'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
-alias vi='nvim'
-alias v='nvim'
 alias diff='diff -u'
-## git
+alias mv='mv -i'
+alias mv='cp -i'
+alias rm='rm -i'
+# git
 alias g='git'
 alias t='tig'
-alias git-merged-branch='f(){ git branch --merged $1 | egrep -v "develop|master|sandbox"; }; f'
-## rails
+# vim
+alias vim='nvim'
+alias vi='vim'
+alias v='vim'
+# ruby
+alias be='bundle exec'
 alias r='rails'
 alias rc='rails console'
 alias rs='rails server'
+
+# git
+GIT_PS1_SHOWDIRTYSTATE=true
+export PS1='\[\033[32m\]\w\[\033[0m\]\[\033[31m\]$(__git_ps1 "[%s]")\[\033[0m\]\n\$ '
+__git_complete g __git_main
