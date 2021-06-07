@@ -1,0 +1,23 @@
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_ft = ['ruby']
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = ['javascript', 'javascript.jsx']
+
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
+on_ft = ['javascript', 'javascript.jsx']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript', 'typescript.tsx']
+
+[[plugin]]
+repo = 'peitalin/vim-jsx-typescript'
+on_ft = ['typescript', 'typescript.tsx']
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']

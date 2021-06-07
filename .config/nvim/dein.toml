@@ -1,0 +1,76 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+  "" Disable AutoComplPop.
+  let g:acp_enableAtStartuo = 0
+  "" Use neocomplete.
+  let g:neocomplete#enable_at_startup = 1
+  "" Use smartcase.
+  let g:neocomplete#enable_smart_case = 1
+  "" _(アンダースコア)区切りの補完を有効化
+  let g:neocomplete#enable_underbar_completion = 1
+  let g:neocomplete#enable_camel_case_completion = 1
+  "" 補完を表示する最小文字数
+  let g:neocomplete#auto_completion_start_length = 2
+  "" preview window を閉じない
+  let g:neocomplcache_enable_auto_close_preview = 0
+'''
+
+#[[plugins]]
+#repo = 'scrooloose/nerdtree'
+#hook_add = '''
+#  let NERDTreeShowHidden = 1
+#  autocmd VimEnter * execute 'NERDTree'
+#'''
+
+[[plugins]]
+repo = 'dense-analysis/ale'
+hook_add = '''
+  let g:ale_fixers = {
+  \   'ruby': ['rubocop'],
+  \   'javascript': ['prettier'],
+  \   'typescript': ['prettier']
+  \}
+  let g:ale_fix_on_save = 1
+  let g:ale_lint_on_text_changed = 0
+  let g:ale_open_list = 1
+  let g:ale_keep_list_window_open = 1
+
+  nmap <F8> <Plug>(ale_fix)
+'''
+
+[[plugins]]
+repo = 'slim-template/vim-slim'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+merge = 0
+hook_add = '''
+  " Use `[c` and `]c` to navigate diagnostics
+  nmap <silent> [c <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+  " Remap keys for gotos
+  nmap <silent> <space><space> :<C-u>CocList<cr>
+  nmap <silent> <space>h :<C-u>call CocAction('doHover')<cr>
+  nmap <silent> df <Plug>(coc-definition)
+  nmap <silent> dr <Plug>(coc-references)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+'''
+
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+  let g:indent_guides_enable_on_vim_startup = 1
+'''

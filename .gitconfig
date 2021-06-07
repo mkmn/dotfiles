@@ -1,28 +1,29 @@
 [user]
-  name = mkmn
-  email = mkmn52@gmail.com
+	name = mkmn
+	email = mkmn52@gmail.com
 [core]
-  excludesfile = ~/.gitignore
-  attributesfile = ~/.gitattributes
-  quotepath = false
-  editor = nvim
-[push]
-  default = simple
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+	quotepath = false
+	editor = nvim
+[alias]
+ 	ad = add
+	ch = checkout
+	co = commit
+	st = status
+	br = branch
+	fe = fetch
+	me = merge
+	ps = push
+	pl = pull
+	di = diff
+  mb = "!f() { git branch --merged $1 | egrep -v \"^(\\*.+|\\**\\s+(master|main|develop|staging))$\"; }; f"
 [fetch]
-  prune =  true
+	prune = true
+[color]
+	ui = true
 [diff "xlsx"]
   binary = true
   textconv = $GOPATH/bin/git-xlsx-textconv
-[alias]
-  ad = add
-  ch = checkout
-  co = commit
-  st = status
-  br = branch
-  fe = fetch
-  me = merge
-  ps = push
-  pl = pull
-  di = diff
-[diff]
-  renameLimit = -1
+[grep]
+	lineNumber = true
