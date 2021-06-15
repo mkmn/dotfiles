@@ -1,7 +1,6 @@
 #!/bin/bash -e
 
 DOTFILES_DIR="$HOME/dotfiles"
-echo $DOTFILES_DIR
 
 if [ ! -d $DOTFILES_DIR ]; then
 	git clone https://github.com/mkmn/dotfiles.git $DOTFILES_DIR
