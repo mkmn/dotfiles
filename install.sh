@@ -9,10 +9,10 @@ fi
 pushd $DOTFILES_DIR
 for f in .??*
 do
-    [[ $f == ".git" ]] && continue
-    [[ $f == ".DS_Store" ]] && continue
-    [[ $f == ".gitignore" ]] && continue
+	[[ $f == ".git" ]] && continue
+	[[ $f == ".DS_Store" ]] && continue
+	[[ $f == ".gitignore" ]] && continue
 
-    ln -sfnv "$DOTFILES_DIR/$f" "$HOME/$f"
+	ln -sfnv "$DOTFILES_DIR/$f" "$HOME/$f"
 done
 popd
