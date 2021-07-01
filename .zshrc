@@ -17,6 +17,7 @@ if [ -e $HOME/.yvm ]; then
 fi
 
 # autocomplete
+_cache_hosts=(`ruby -ne 'print $1.strip, "\n" if /^Host\s+(.+)$/' ~/.ssh/**/config`)
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 

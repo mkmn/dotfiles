@@ -1,2 +1,10 @@
-.config/
-!.config/nvim
+# neovimの設定はcommit
+/.config/*
+!/.config/nvim
+
+# ssh設定はconfigと個別設定をおくconf.dのみcommit
+/.ssh/*
+!/.ssh/config
+/.ssh/conf.d/*
+!/.ssh/conf.d/
+!/.ssh/conf.d/.gitkeep
