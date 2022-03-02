@@ -36,7 +36,7 @@ set secure
 nnoremap <Space>f gg=G``
 
 let g:pytho3_host_prog = '/usr/local/bin/python3'
-let g:ruby_host_prog = '~/.rbenv/shims/neovim-ruby-host'
+let g:ruby_host_prog = '~/.anyenv/envs/rbenv/shims/neovim-ruby-host'
 
 "dein Scripts-----------------------------
 if &compatible

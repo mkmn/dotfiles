@@ -1,13 +1,7 @@
-# rbenv init
-if [ -e $HOME/.rbenv ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
-
-# nodenv init
-if [ -e $HOME/.nodenv ]; then
-  export PATH="$HOME/.nodenv/bin:$PATH"
-  eval "$(nodenv init -)"
+# anyenv init
+if [ -e $HOME/.anyenv ]; then
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  eval "$(anyenv init -)"
 fi
 
 # yvm init
@@ -58,4 +52,8 @@ alias rc='rails console'
 alias rs='rails server'
 
 export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 eval "$(gh completion -s zsh)"
+
+[[ -r `brew --prefix`/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ]] && . `brew --prefix`/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+[[ -r `brew --prefix`/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc ]] && . `brew --prefix`/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
