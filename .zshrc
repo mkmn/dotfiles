@@ -53,6 +53,11 @@ alias rs='rails server'
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+if [ -e $HOME/.env.local ]; then
+  source $HOME/.env.local
+fi
+
 eval "$(gh completion -s zsh)"
 
 [[ -r `brew --prefix`/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ]] && . `brew --prefix`/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc

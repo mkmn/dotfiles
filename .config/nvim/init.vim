@@ -46,7 +46,7 @@ endif
 " Required:
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 let s:dein_cache_path = '~/.cache/dein'
-let g:dein#install_github_api_token = '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'
+let g:dein#install_github_api_token = $GITHUB_ACCESS_TOKEN
 
 " Required:
 if dein#load_state(s:dein_cache_path)
@@ -69,6 +69,10 @@ syntax enable
 " If you want to install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
+endif
+
+if dein#check_update(v:true)
+  call dein#update()
 endif
 
 "End dein Scripts-------------------------
