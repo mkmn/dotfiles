@@ -17,7 +17,7 @@
 	ps = push
 	pl = pull
 	di = diff
-  mb = "!f() { git branch --merged $1 | egrep -v \"^(\\*.+|\\**\\s+(master|main|develop|staging))$\"; }; f"
+  mb = "!f() { git branch --merged $1 | egrep -v \"^(\\*.+|\\+.+|\\**\\s+(master|main|develop|staging))$\"; }; f"
 [fetch]
 	prune = true
 [color]

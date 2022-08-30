@@ -59,6 +59,3 @@ if [ -e $HOME/.env.local ]; then
 fi
 
 eval "$(gh completion -s zsh)"
-
-[[ -r `brew --prefix`/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ]] && . `brew --prefix`/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-[[ -r `brew --prefix`/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc ]] && . `brew --prefix`/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
