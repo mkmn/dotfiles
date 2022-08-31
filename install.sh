@@ -2,6 +2,10 @@
 
 DOTFILES_DIR="$HOME/dotfiles"
 
+if !(type brew > /dev/null 2>&1); then
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
 if [ ! -d $DOTFILES_DIR ]; then
 	git clone https://github.com/mkmn/dotfiles.git $DOTFILES_DIR
 fi
