@@ -47,9 +47,6 @@ alias vi='vim'
 alias v='vim'
 # ruby
 alias be='bundle exec'
-alias r='rails'
-alias rc='rails console'
-alias rs='rails server'
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
