@@ -31,9 +31,9 @@ RPROMPT=''
 
 # alias
 alias ls='ls -G'
-alias ll='ls -l'
+alias ll='ls -lh'
 alias la='ls -a'
-alias lla='ls -la'
+alias lla='ls -lha'
 alias diff='diff -u'
 alias mv='mv -i'
 alias mv='cp -i'
