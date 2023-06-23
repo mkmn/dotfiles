@@ -4,16 +4,14 @@ if [ -e $HOME/.anyenv ]; then
   eval "$(anyenv init -)"
 fi
 
-# yvm init
-if [ -e $HOME/.yvm ]; then
-  export YVM_DIR=$HOME/.yvm
-  [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
-fi
-
 # autocomplete
 _cache_hosts=(`ruby -ne 'print $1.strip, "\n" if /^Host\s+(.+)$/' ~/.ssh/**/config`)
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+if command -v gh > /dev/null; then
+  eval "$(gh completion -s zsh)"
+fi
 
 # prompt
 autoload -Uz vcs_info
@@ -54,5 +52,3 @@ export PATH=$PATH:$GOPATH/bin
 if [ -e $HOME/.env.local ]; then
   source $HOME/.env.local
 fi
-
-eval "$(gh completion -s zsh)"
