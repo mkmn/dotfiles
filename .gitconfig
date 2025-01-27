@@ -1,11 +1,12 @@
 [user]
 	name = mkmn
-	email = mkmn52@gmail.com
+	email = mkmn@users.noreply.github.com
 [core]
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 	quotepath = false
 	editor = nvim
+	commentChar = ";"
 [alias]
  	ad = add
 	ch = checkout
