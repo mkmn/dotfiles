@@ -29,6 +29,9 @@ set incsearch
 set smartcase
 set wrapscan
 
+colorscheme vim
+set notermguicolors
+
 set exrc
 set secure
 
