@@ -1,21 +1,5 @@
 return {
   {
-    "Shougo/deoplete.nvim",
-    build = ":UpdateRemotePlugins",
-    init = function()
-      -- 元dein.tomlの設定を維持（ただし変数名は neocomplete 時代のもので
-      -- deoplete自体には効いていない可能性があります。動作を変えないためそのまま移植。
-      -- 実際にdeopleteの挙動を変えたい場合は g:deoplete#enable_at_startup 等が必要です）
-      vim.g.acp_enableAtStartuo = 0
-      vim.g["neocomplete#enable_at_startup"] = 1
-      vim.g["neocomplete#enable_smart_case"] = 1
-      vim.g["neocomplete#enable_underbar_completion"] = 1
-      vim.g["neocomplete#enable_camel_case_completion"] = 1
-      vim.g["neocomplete#auto_completion_start_length"] = 2
-      vim.g.neocomplcache_enable_auto_close_preview = 0
-    end,
-  },
-  {
     "scrooloose/nerdtree",
     init = function()
       vim.g.NERDTreeShowHidden = 1
