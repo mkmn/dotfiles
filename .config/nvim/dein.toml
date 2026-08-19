@@ -37,10 +37,13 @@ hook_add = '''
 [[plugins]]
 repo = 'dense-analysis/ale'
 hook_add = '''
+  " JS/TSのfix/lintはcoc-eslint / coc-oxc / coc-prettierに移行したため、
+  " ALEはRuby(rubocop)専用に縮小（JS/TSの二重フォーマット・二重リントを防止）
   let g:ale_fixers = {
   \   'ruby': ['rubocop'],
-  \   'javascript': ['prettier'],
-  \   'typescript': ['prettier']
+  \}
+  let g:ale_linters = {
+  \   'ruby': ['rubocop'],
   \}
   let g:ale_fix_on_save = 1
   let g:ale_lint_on_text_changed = 0
@@ -60,6 +63,21 @@ repo = 'neoclide/coc.nvim'
 rev = 'release'
 merge = 0
 hook_add = '''
+  " CocInstallで入れる拡張をここで宣言し、リポジトリ管理下で再現できるようにする
+  " coc-eslint : 既存のESLintルールをそのまま利用
+  " coc-oxc    : oxlint(リント) / oxfmt(フォーマット) 公式拡張
+  " coc-prettier : フォーマットはprettierに一本化（oxfmtとの競合回避のためcoc-settings.jsonでoxfmtは無効化）
+  let g:coc_global_extensions = ['coc-eslint', 'coc-oxc', 'coc-prettier']
+
+  " モノレポ対策: JS/TS系ファイルではpackage.json/oxlintrc/oxfmtrcを
+  " .git(親リポジトリ)より優先してワークスペースルートとして検出させる。
+  " これが無いと、外側に.gitがあるサブディレクトリ構成で、
+  " coc-oxc/coc-prettierがサブディレクトリのnode_modulesやローカル設定
+  " (.oxfmtrc.json等)を見つけられず、意図しないデフォルト値で
+  " フォーマットされてしまうことがある。
+  autocmd FileType javascript,javascriptreact,javascript.jsx,typescript,typescriptreact,typescript.tsx
+    \ let b:coc_root_patterns = ['.oxlintrc.json', '.oxfmtrc.json', 'package.json', '.git']
+
   function! CheckBackSpace() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'

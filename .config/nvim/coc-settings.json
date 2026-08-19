@@ -1,3 +1,34 @@
 {
-  "solargraph.diagnostics": true
+  "solargraph.diagnostics": true,
+
+  // ---- ESLint ----
+  // 既存のESLintルールはそのまま活かす（フォーマットはprettierに任せるためautoFixOnSaveはfalse）
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": false,
+  "eslint.run": "onType",
+
+  // ---- oxlint (coc-oxc) ----
+  // ESLintと併用。プロジェクト側でeslint-plugin-oxlintを使い、
+  // oxlintがカバーするルールをESLint側で無効化すると二重警告を防げます
+  "oxc.oxlint.enable": true,
+  "oxc.oxlint.run": "onType",
+  "oxc.oxlint.configPath": null,
+  "oxc.oxlint.codeActionsOnSave": ["source.fixAll.oxc"],
+
+  // ---- フォーマッター ----
+  // oxfmtが有効な場合はそちらを優先し、無い場合はprettierにフォールバックさせたいので、
+  // coc.preferences.formatterExtension で特定の拡張に固定しない。
+  // coc-oxcはデフォルトで oxc.oxfmt.formatterPriority=1 を持ち、
+  // 優先度未設定の他フォーマッタ(coc-prettier)より優先されるため、
+  // プロジェクトにoxfmtがあれば自動的にそちらが使われ、無ければprettierが使われる。
+  "oxc.oxfmt.enable": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "css",
+    "markdown"
+  ]
 }
