@@ -9,9 +9,17 @@ return {
       "coc-eslint", -- 既存のESLintルールをそのまま活かす
       "coc-oxc", -- oxlint / oxfmt (oxc-project公式)
       "coc-prettier", -- フォーマットはprettierに一本化（元ALEのprettier fixerの後継）
+      "coc-tsserver", -- TypeScript/JavaScriptの型情報付き補完・定義ジャンプ・リファクタリング
+      "coc-solargraph", -- Rubyの言語サーバー。coc-settings.jsonのsolargraph.diagnosticsはこれが必要
     }
   end,
   config = function()
+    -- coc-tsserverは自前でフォーマット機能を持つが、今回はprettier/oxfmtに一本化したいため
+    -- フォーマット関連の機能だけ無効化する（補完・定義ジャンプ等の言語機能は有効のまま）
+    vim.g.coc_user_config = vim.tbl_extend("force", vim.g.coc_user_config or {}, {
+      ["typescript.format.enable"] = false,
+      ["javascript.format.enable"] = false,
+    })
     -- モノレポ対策: JS/TS系ファイルではpackage.json/oxlintrc/oxfmtrcを
     -- .git(親リポジトリ)より優先してワークスペースルートとして検出させる。
     -- coc-eslintやtsserverなど「rootUri」を見て動くLSPには効くが、
