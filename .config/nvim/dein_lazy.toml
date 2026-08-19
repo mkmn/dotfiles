@@ -14,7 +14,7 @@ on_ft = ['javascript', 'javascript.jsx']
 repo = 'leafgarland/typescript-vim'
 on_ft = ['typescript', 'typescript.tsx']
 
-[[plugin]]
+[[plugins]]
 repo = 'peitalin/vim-jsx-typescript'
 on_ft = ['typescript', 'typescript.tsx']
 
