@@ -10,6 +10,10 @@ if [ ! -d $DOTFILES_DIR ]; then
 	git clone https://github.com/mkmn/dotfiles.git $DOTFILES_DIR
 fi
 
+if [ -f "$DOTFILES_DIR/Brewfile" ]; then
+	brew bundle --file="$DOTFILES_DIR/Brewfile"
+fi
+
 pushd $DOTFILES_DIR
 for f in .??*
 do
