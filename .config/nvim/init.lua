@@ -39,8 +39,8 @@ vim.g.ruby_host_prog = "~/.anyenv/envs/rbenv/shims/neovim-ruby-host"
 
 -- .tsx / .jsx を typescript.tsx として扱う（元 init.vim 最終行の移植）
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = { "*.tsx", "*.jsx" },
-  command = "set filetype=typescript.tsx",
+	pattern = { "*.tsx", "*.jsx" },
+	command = "set filetype=typescript.tsx",
 })
 
 -- ============================================================
@@ -48,21 +48,28 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 -- ============================================================
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable",
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  spec = {
-    { import = "plugins" }, -- lua/plugins/*.lua を自動読み込み
-  },
-  install = { colorscheme = { "default" } },
-  checker = { enabled = true }, -- プラグインの更新チェックを自動化
+	spec = {
+		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
+		{ import = "plugins" }, -- lua/plugins/*.lua を自動読み込み
+	},
+	install = {
+		colorscheme = { "default" },
+		version = "*",
+	},
+	checker = { -- プラグインの更新チェックを自動化
+		enabled = true,
+		notify = false,
+	},
 })
