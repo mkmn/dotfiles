@@ -34,7 +34,7 @@ alias la='ls -a'
 alias lla='ls -lha'
 alias diff='diff -u'
 alias mv='mv -i'
-alias mv='cp -i'
+alias cp='cp -i'
 alias rm='rm -i'
 # git
 alias g='git'
