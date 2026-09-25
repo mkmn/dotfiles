@@ -1,6 +1,9 @@
 -- ============================================================
 -- General options (元 init.vim のオプション部分をLua化)
 -- ============================================================
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 vim.opt.clipboard:append("unnamedplus")
 
 vim.opt.backup = false
@@ -31,11 +34,16 @@ vim.opt.termguicolors = false
 vim.opt.exrc = true
 vim.opt.secure = true
 
--- format file
-vim.keymap.set("n", "<Space>f", "gg=G``")
+-- Re-indent the entire buffer. <leader>f is reserved for LazyVim finders.
+vim.keymap.set("n", "<leader>i", "gg=G``", { desc = "Re-indent buffer" })
 
 vim.g.python3_host_prog = "/usr/local/bin/python3"
 vim.g.ruby_host_prog = "~/.anyenv/envs/rbenv/shims/neovim-ruby-host"
+
+-- Native LSP choices for the LazyVim language extras.
+vim.g.lazyvim_ruby_lsp = "ruby_lsp"
+vim.g.lazyvim_ruby_formatter = "rubocop"
+vim.g.lazyvim_ts_lsp = "vtsls"
 
 -- .tsx / .jsx を typescript.tsx として扱う（元 init.vim 最終行の移植）
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
@@ -62,6 +70,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
+		{ import = "lazyvim.plugins.extras.lang.ruby" },
+		{ import = "lazyvim.plugins.extras.lang.typescript" },
 		{ import = "plugins" }, -- lua/plugins/*.lua を自動読み込み
 	},
 	install = {
