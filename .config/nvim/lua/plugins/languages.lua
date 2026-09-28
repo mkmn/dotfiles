@@ -4,7 +4,6 @@ return {
     opts = {
       servers = {
         eslint = {},
-        terraformls = {},
       },
     },
   },

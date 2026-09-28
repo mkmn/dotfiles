@@ -1,6 +1,7 @@
 # neovimの設定はcommit
 /.config/*
 !/.config/nvim
+/.config/nvim/lazyvim.json
 
 # ssh設定はconfigと個別設定をおくconf.dのみcommit
 /.ssh/*
