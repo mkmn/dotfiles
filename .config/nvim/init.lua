@@ -9,7 +9,6 @@ vim.opt.clipboard:append("unnamedplus")
 vim.opt.backup = false
 vim.opt.swapfile = false
 
-vim.opt.autoindent = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -44,12 +43,6 @@ vim.g.ruby_host_prog = "~/.anyenv/envs/rbenv/shims/neovim-ruby-host"
 vim.g.lazyvim_ruby_lsp = "ruby_lsp"
 vim.g.lazyvim_ruby_formatter = "rubocop"
 vim.g.lazyvim_ts_lsp = "vtsls"
-
--- .tsx / .jsx を typescript.tsx として扱う（元 init.vim 最終行の移植）
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-	pattern = { "*.tsx", "*.jsx" },
-	command = "set filetype=typescript.tsx",
-})
 
 -- ============================================================
 -- lazy.nvim bootstrap

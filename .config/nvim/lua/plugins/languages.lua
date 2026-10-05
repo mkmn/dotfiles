@@ -1,3 +1,5 @@
+local project_formatter = require("util.project_formatter").select
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -11,13 +13,13 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        css = { "oxfmt", "prettier", stop_after_first = true },
-        javascript = { "oxfmt", "prettier", stop_after_first = true },
-        javascriptreact = { "oxfmt", "prettier", stop_after_first = true },
-        json = { "oxfmt", "prettier", stop_after_first = true },
-        markdown = { "oxfmt", "prettier", stop_after_first = true },
-        typescript = { "oxfmt", "prettier", stop_after_first = true },
-        typescriptreact = { "oxfmt", "prettier", stop_after_first = true },
+        css = project_formatter,
+        javascript = project_formatter,
+        javascriptreact = project_formatter,
+        json = project_formatter,
+        markdown = project_formatter,
+        typescript = project_formatter,
+        typescriptreact = project_formatter,
       },
     },
   },

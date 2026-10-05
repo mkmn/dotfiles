@@ -42,9 +42,15 @@ return {
 
     vim.api.nvim_create_autocmd("FileType", {
       pattern = filetypes,
-      callback = function()
+      callback = function(event)
+        vim.bo[event.buf].autoindent = true
         -- インストール未完了(初回起動直後など)でエラーにならないようpcallで保護
-        pcall(vim.treesitter.start)
+        local started = pcall(vim.treesitter.start, event.buf)
+        local lang = vim.treesitter.language.get_lang(vim.bo[event.buf].filetype)
+        local ok, query = pcall(vim.treesitter.query.get, lang, "indents")
+        if started and ok and query then
+          vim.bo[event.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
       end,
     })
   end,
