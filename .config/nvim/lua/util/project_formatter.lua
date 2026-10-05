@@ -2,29 +2,14 @@ local M = {}
 
 local prettier_configs = {
   ".prettierrc",
-  ".prettierrc.json",
-  ".prettierrc.json5",
-  ".prettierrc.yaml",
-  ".prettierrc.yml",
-  ".prettierrc.toml",
-  ".prettierrc.js",
-  ".prettierrc.cjs",
-  ".prettierrc.mjs",
-  ".prettierrc.ts",
-  ".prettierrc.cts",
-  ".prettierrc.mts",
-  "prettier.config.js",
-  "prettier.config.cjs",
-  "prettier.config.mjs",
-  "prettier.config.ts",
-  "prettier.config.cts",
-  "prettier.config.mts",
+  ".prettierrc.{json,json5,yaml,yml,toml,js,cjs,mjs,ts,cts,mts}",
+  "prettier.config.{js,cjs,mjs,ts,cts,mts}",
 }
-local oxfmt_configs = { ".oxfmtrc.json", ".oxfmtrc.jsonc", "oxfmt.config.ts" }
+local oxfmt_configs = { ".oxfmtrc.{json,jsonc}", "oxfmt.config.ts" }
 
-local function has_config(dir, names)
-  for _, name in ipairs(names) do
-    if vim.uv.fs_stat(vim.fs.joinpath(dir, name)) then
+local function has_config(dir, patterns)
+  for _, pattern in ipairs(patterns) do
+    if #vim.fn.globpath(vim.fn.escape(dir, ","), pattern, true, true) > 0 then
       return true
     end
   end
